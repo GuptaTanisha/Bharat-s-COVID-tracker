@@ -44,7 +44,6 @@ export const fetchStateDailyData = async (stateOfBharat) => {
   else{const {data: {data}} = await axios.get(url);
   const states= data.map((stateData) => (stateData.regional));
   const reqData= states.map((stateData) => (stateData.filter((state) => (state.loc == stateOfBharat))));
-  //const stateData = states.filter((stateData) => (stateData.loc == stateOfBharat));
   const day = data.map((state) => (state.day));
   const infected = reqData.map((state) => state[0]?(state[0].totalConfirmed):0);
   const recoveries = reqData.map((state) => state[0]?(state[0].discharged):0);
